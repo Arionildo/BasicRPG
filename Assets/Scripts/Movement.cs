@@ -58,6 +58,6 @@ public class Movement : MonoBehaviour
 
     private bool IsRunning()
     {
-        return (transform.position - previousPosition).sqrMagnitude > 0f;
+        return (transform.position - previousPosition).magnitude > 0.01f;
     }
 }

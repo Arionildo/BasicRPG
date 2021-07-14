@@ -30,7 +30,7 @@ public class Status : MonoBehaviour
 
     private void CheckDeath()
     {
-        if (currentHealth <= 0f)
+        if (!IsAlive())
         {
             currentState = StateEnum.DEAD;
 
@@ -61,6 +61,11 @@ public class Status : MonoBehaviour
         {
             currentEnergy = maxEnergy;
         }
+    }
+
+    public bool IsAlive()
+    {
+        return currentHealth > 0;
     }
 
     public void AddAttack(float value)

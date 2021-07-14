@@ -60,6 +60,11 @@ public class PlayerAttack : MonoBehaviour
         float damage = status.currentAttack * (100 / (100 + targetStatus.currentDefense));
 
         targetStatus.AddHealth(-damage);
+
+        if(!targetStatus.IsAlive())
+        {
+            status.currentState = StateEnum.IDLE;
+        }
     }
 
     private void Prepare()
@@ -80,7 +85,6 @@ public class PlayerAttack : MonoBehaviour
         {
             hasTarget = false;
             movement.agent.destination = transform.position;
-            status.currentState = StateEnum.IDLE;
         }
     }
 }
